@@ -84,8 +84,9 @@ FROM {periodo}
 WHERE origem = %s
 AND destino = %s
 """
-
+# =========================
 #RESULTADO
+# =========================
 
 resultado = pd.read_sql(
     query,
