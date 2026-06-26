@@ -13,7 +13,7 @@ load_dotenv()
 
 #Banco de dados
 
-DATABASE_URL = "postgresql://postgres.lfayhozzilflwljuwsau:283hz28ujn19m@aws-1-sa-east-1.pooler.supabase.com:6543/postgres"
+DATABASE_URL = os.environ["DATABASE_URL"]
 
 engine = create_engine(DATABASE_URL)
 
