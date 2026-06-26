@@ -1,7 +1,12 @@
 venv/
+.devcontainer/
 __pycache__/
+serv/__pycache__/
 *.pyc
 *.db
 .env
-database/
 .streamlit/
+database/
+serv/credenciais.json
+serv/.env
+serv/convert.py
