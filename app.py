@@ -19,12 +19,13 @@ st.title("🔎 Buscador de Passagens")
 st.header("Inicio da pesquisa: 23/06/2026")
 
 if st.button("🔄 Sincronizar dados"):
-    try:
-        sync_all()
-        st.success("Sincronização concluída!")
-        st.rerun()
-    except Exception as e:
-        st.error(f"Erro ao sincronizar dados: {e}")
+    with st.spinner("Atualizando banco..."):
+        try:
+            sync_all()
+            st.success("✔ Dados atualizados com sucesso!")
+            st.toast("Sincronização concluída")
+        except Exception as e:
+            st.error(f"Erro ao sincronizar dados: {e}")
 
 # =========================
 # FORMATAÇÃO DE COLUNAS
