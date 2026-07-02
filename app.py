@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sqlalchemy import create_engine
+from sync import sync_all
 
 # =========================
 # CARREGAR DADOS
@@ -16,6 +17,14 @@ engine = create_engine(DATABASE_URL)
 
 st.title("🔎 Buscador de Passagens")
 st.header("Inicio da pesquisa: 23/06/2026")
+
+if st.button("🔄 Sincronizar dados"):
+    try:
+        sync_all()
+        st.success("Sincronização concluída!")
+        st.rerun()
+    except Exception as e:
+        st.error(f"Erro ao sincronizar dados: {e}")
 
 # =========================
 # FORMATAÇÃO DE COLUNAS
